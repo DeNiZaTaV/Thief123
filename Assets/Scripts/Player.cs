@@ -28,11 +28,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (other.CompareTag("EnterTuzak"))
-        {
-            tuzak.SpawnObject();
-
-        }
+       
 
             
 

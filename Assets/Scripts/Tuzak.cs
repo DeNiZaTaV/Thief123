@@ -1,14 +1,17 @@
-using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Tuzak : MonoBehaviour
 {
+    [SerializeField]
     public GameObject objectToSpawn;
+    [SerializeField]
     public Vector3 spawnAreaMin;
+    [SerializeField]
     public Vector3 spawnAreaMax;
-    public int numberOfObjectsToSpawn = 10;
+    [SerializeField]
+    public int numberOfObjectsToSpawn = 20;
 
     void Start()
     {
@@ -40,7 +43,7 @@ public class Tuzak : MonoBehaviour
         // Instantiate the object at the random position
         Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
 
-        transform.DOMoveY(1, 2);
+       
     }
 
   
