@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Tuzak tuzak;
+    
     public GameObject item;
     // Start is called before the first frame update
     void Start()
     {
-        tuzak = FindObjectOfType<Tuzak>();
+        
     }
 
     // Update is called once per frame
