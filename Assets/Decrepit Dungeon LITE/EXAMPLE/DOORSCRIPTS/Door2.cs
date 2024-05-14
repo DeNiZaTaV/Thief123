@@ -12,33 +12,40 @@ public class Door2 : MonoBehaviour
     public bool lv1 = false;
     public bool lv2 = false;
     public bool lv3 = false;
-  
+    private bool a = false;   
 
 
     private void Update()
     {
-        Debug.Log("Y Position: " + transform.position.y); // Log the y position for debugging
-        if (transform.position.y < 5 && lv2)
+       // Debug.Log("Y Position: " + transform.position.y); // Log the y position for debugging
+        if (transform.position.y < 5 && lv2 && a)
         {
             transform.position += (transform.right * 2) * Time.deltaTime;
-            
+
         }
-       
+
     }
 
     private void Start()
     {
-        
-        
+
+
     }
-    private void OpenDoor()
-    {
-        /*Door1 door1 = GetComponent<Door1>(); // Get instance of Door1 component attached to the same GameObject hangisini yap?caksan onun door numar?s?n? de?i?tir
-        door1.DoorOpen1(); // Call */
-    }
+ 
     public void DoorOpen2()
     {
         lv2 = true;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") )
+        {
+            a = true;
+            Invoke("ResetDoorOpen", 5f);
+        }
+    }
+    private void ResetDoorOpen()
+    {
+        a = false;
+    }
 }
-

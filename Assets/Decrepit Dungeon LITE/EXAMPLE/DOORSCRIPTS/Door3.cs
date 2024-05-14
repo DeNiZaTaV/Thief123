@@ -12,13 +12,13 @@ public class Door3 : MonoBehaviour
     public bool lv1 = false;
     public bool lv2 = false;
     public bool lv3 = false;
-    
+    private bool a = false;
 
 
     private void Update()
     {
-        Debug.Log("Y Position: " + transform.position.y); // Log the y position for debugging
-        if (transform.position.y < 5 && lv3)
+       // Debug.Log("Y Position: " + transform.position.y); // Log the y position for debugging
+        if (transform.position.y < 50 && lv3 && a)
         {
             transform.position += (transform.right * 2) * Time.deltaTime;
         }
@@ -27,5 +27,16 @@ public class Door3 : MonoBehaviour
     {
         lv3 = true;
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player") )
+        {
+            a = true;
+            Invoke("ResetDoorOpen", 6f);
+        }
+    }
+    private void ResetDoorOpen()
+    {
+        a = false;
+    }
 }
-
